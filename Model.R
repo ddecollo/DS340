@@ -1,6 +1,5 @@
 library(ggplot2)
 
-# Load in our nicely cleaned data
 data <- fread('./season_2018.csv')
 data <- fread('./season_2019.csv')
 data <- fread('./season_2020.csv')
@@ -23,7 +22,7 @@ season_2019$super_bowl_winner <- predict(mylogit, newdata = season_2018)
 
 season_2018$Teams <- droped
 
-# Creating our plot
+# Creating plots
 ggplot(season_2019, aes(x = reorder(Teams, super_bowl_winner), y = super_bowl_winner)) +
   geom_point(aes(colour = Teams)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
@@ -50,7 +49,7 @@ season_2020$super_bowl_winner <- predict(mylogit, newdata = season_2019)
 
 season_2019$Teams <- dropped
 
-# Creating our plot
+# Creating plots
 ggplot(season_2020, aes(x = reorder(Teams, super_bowl_winner), y = super_bowl_winner)) +
   geom_point(aes(colour = Teams)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
@@ -76,7 +75,7 @@ season_2021$super_bowl_winner <- predict(mylogit, newdata = season_2020)
 
 season_2020$Teams <- dropped
 
-#Creating our plot
+#Creating plots
 
 ggplot(season_2021, aes(x = reorder(Teams, super_bowl_winner), y = super_bowl_winner)) +
   geom_point(aes(colour = Teams)) +
